@@ -40,7 +40,7 @@ body {
   background-color: black;
   color: rgb(221, 221, 221);
   border: none;
-  padding: 20px 30px;
+  padding: 15px 25px;
 }
 
 .btn-primary:hover {
@@ -379,4 +379,408 @@ nav .links-menu {
   .about a {
     font-size: 14px;
   }
+}
+#work-section {
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 40px;
+}
+
+.small-heading {
+  width: 100%;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.small-heading p {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 200;
+  opacity: 0.8;
+}
+
+/* WORK GRID */
+.work-grid {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "work-heading work-heading"
+    "top-left top-right"
+    "bottom-left bottom-right";
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.work-heading {
+  grid-area: work-heading;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.work-heading h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 200;
+  opacity: 0.8;
+}
+
+/* GRID AREA */
+.top-left {
+  grid-area: top-left;
+}
+
+.top-right {
+  grid-area: top-right;
+}
+
+.bottom-left {
+  grid-area: bottom-left;
+}
+
+.bottom-right {
+  grid-area: bottom-right;
+}
+
+/* IMAGE */
+.work-grid .work-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.work-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.work-img:hover img {
+  transform: scale(1.1);
+}
+
+/* DESCRIPTION */
+.work-grid .desc {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.work-grid .desc p {
+  font-size: clamp(16px, 2vw, 20px);
+}
+
+.work-grid .desc button {
+  width: fit-content;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: transparent;
+  border: 1px solid black;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+
+.work-grid .desc button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* 
+   TABLET
+ */
+@media (max-width: 1024px) {
+  .work-grid {
+    gap: 15px;
+  }
+
+  .work-grid .desc p {
+    font-size: 18px;
+  }
+}
+
+/* 
+   MOBILE
+ */
+@media (max-width: 768px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "work-heading"
+      "top-left"
+      "top-right"
+      "bottom-left"
+      "bottom-right";
+  }
+
+  .work-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .work-grid .desc {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .work-grid .desc button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* 
+   SMALL MOBILE
+ */
+@media (max-width: 480px) {
+  .work-grid .desc p {
+    font-size: 15px;
+  }
+
+  .work-grid .desc button {
+    font-size: 14px;
+  }
+}
+#value-section {
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 40px;
+}
+
+.value-grid {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "first second third fourth"
+    "fiveth sixth seventh eighth";
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* GRID AREA */
+.first {
+  background-color: #f1f5f9;
+  grid-area: first;
+}
+
+.second {
+  background-color: #f1f6f5;
+  grid-area: second;
+}
+
+.third {
+  background-color: #f8f8f8;
+  grid-area: third;
+}
+
+/* BLANK BOX */
+.fourth {
+  grid-area: fourth;
+  background: transparent;
+}
+
+.fiveth {
+  grid-area: fiveth;
+  background: transparent;
+}
+
+.sixth {
+  background-color: #f8f8f8;
+  grid-area: sixth;
+}
+
+.seventh {
+  background-color: #f8ede3;
+  grid-area: seventh;
+}
+
+.eighth {
+  background-color: #fffae7;
+  grid-area: eighth;
+}
+
+/* CARD */
+.value-grid-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px;
+  min-height: 280px;
+  text-align: left;
+}
+
+.value-grid-box p {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.value-grid-box h3 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 300;
+  opacity: 0.9;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.left-value-top button {
+  font-size: medium;
+  width: fit-content;
+  margin-bottom: -70px;
+  display: flex;
+  align-self: center;
+}
+
+/* FIX */
+.left-value-top p,
+.left-value-top h3 {
+  text-transform: none;
+}
+
+.left-value-bottom h3 {
+  text-transform: none;
+}
+
+/* 
+   TABLET
+ */
+@media (max-width: 1024px) {
+  .value-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "first second"
+      "third sixth"
+      "seventh eighth";
+  }
+
+  /* blank box remove */
+  .fourth,
+  .fiveth {
+    display: none;
+  }
+
+  .value-grid-box {
+    padding: 35px;
+  }
+
+  .left-value-top {
+    margin-bottom: 40px;
+  }
+
+  .left-value-top-button {
+    margin-bottom: -40px;
+  }
+}
+
+/* 
+   MOBILE
+ */
+@media (max-width: 768px) {
+  .value-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "first"
+      "second"
+      "third"
+      "sixth"
+      "seventh"
+      "eighth";
+    gap: 20px;
+  }
+
+  .value-grid-box {
+    padding: 25px;
+    min-height: 220px;
+  }
+
+  .value-grid-box h3 {
+    font-size: 1.2rem;
+  }
+  .left-value-top {
+    margin-bottom: 30px;
+  }
+  .left-value-top button {
+    margin-bottom: -40px;
+  }
+}
+
+/* 
+   SMALL MOBILE
+*/
+@media (max-width: 480px) {
+  .value-grid-box {
+    padding: 20px;
+  }
+
+  .value-grid-box p {
+    font-size: 0.75rem;
+  }
+
+  .value-grid-box h3 {
+    font-size: 1rem;
+  }
+  .left-value-top {
+    margin-bottom: 30px;
+  }
+  .left-value-top button {
+    margin-bottom: -40px;
+  }
+}
+
+#about-services {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.details-grid {
+  width: 50%;
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "heading-details heading-details"
+    "left-details right-details";
+
+  gap: 10px;
+}
+
+.heading-details {
+  grid-area: heading-details;
+  display: flex;
+  align-items: flex-end;
+}
+
+.left-details {
+  grid-area: left-details;
+}
+.right-details {
+  grid-area: right-details;
+}
+
+.heading-details h2 {
+  font-size: 2.7rem;
+  font-weight: 200;
+}
+
+.details-grid p {
+  font-size: 1rem;
+  font-weight: 100;
+  opacity: 0.7;
+  word-spacing: 0.5rem;
+  line-height: 1.9rem;
 }
