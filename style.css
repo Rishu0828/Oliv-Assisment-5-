@@ -477,7 +477,7 @@ nav .links-menu {
   font-size: clamp(16px, 2vw, 20px);
 }
 
-.work-grid .desc button {
+.small-button {
   width: fit-content;
   border-radius: 50px;
   font-size: 16px;
@@ -489,7 +489,7 @@ nav .links-menu {
   white-space: nowrap;
 }
 
-.work-grid .desc button:hover {
+.small-button:hover {
   background-color: black;
   color: white;
 }
@@ -736,7 +736,6 @@ nav .links-menu {
     margin-bottom: -40px;
   }
 }
-
 #about-services {
   width: 100%;
   min-height: 100vh;
@@ -744,6 +743,7 @@ nav .links-menu {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  padding: 40px 0;
 }
 
 .details-grid {
@@ -751,14 +751,13 @@ nav .links-menu {
   min-height: 90vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 2fr;
   grid-template-areas:
     "heading-details heading-details"
     "left-details right-details";
-
-  gap: 10px;
+  gap: 20px;
 }
 
+/* GRID AREA */
 .heading-details {
   grid-area: heading-details;
   display: flex;
@@ -768,19 +767,260 @@ nav .links-menu {
 .left-details {
   grid-area: left-details;
 }
+
 .right-details {
   grid-area: right-details;
 }
 
+/* HEADING */
 .heading-details h2 {
-  font-size: 2.7rem;
+  font-size: clamp(2rem, 5vw, 2.7rem);
   font-weight: 200;
+  line-height: 1.2;
 }
 
+/* PARAGRAPH */
 .details-grid p {
-  font-size: 1rem;
+  font-size: clamp(14px, 2vw, 1rem);
   font-weight: 100;
   opacity: 0.7;
-  word-spacing: 0.5rem;
+  word-spacing: 0.2rem;
   line-height: 1.9rem;
+}
+
+/*
+   TABLET
+*/
+@media (max-width: 1024px) {
+  .details-grid {
+    width: 80%;
+  }
+}
+
+/* 
+   MOBILE
+ */
+@media (max-width: 768px) {
+  #about-services {
+    min-height: 0;
+    padding: 50px 0;
+  }
+
+  .details-grid {
+    width: 100%;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "heading-details"
+      "left-details"
+      "right-details";
+    gap: 25px;
+  }
+
+  .heading-details {
+    align-items: flex-start;
+  }
+
+  .details-grid p {
+    line-height: 1.7rem;
+  }
+}
+
+/* 
+   SMALL MOBILE
+ */
+@media (max-width: 480px) {
+  .heading-details h2 {
+    font-size: 1.8rem;
+  }
+
+  .details-grid p {
+    font-size: 14px;
+    line-height: 1.6rem;
+  }
+}
+#team-section {
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 40px;
+}
+
+.team-grid {
+  width: 100%;
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "team-heading team-heading team-heading team-heading"
+    "team1 team2 team3 team4";
+  gap: 20px;
+}
+
+/* HEADING */
+.team-heading {
+  grid-area: team-heading;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.team-heading h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 200;
+  opacity: 0.8;
+}
+
+/* GRID AREA */
+.team1 {
+  grid-area: team1;
+}
+
+.team2 {
+  grid-area: team2;
+}
+
+.team3 {
+  grid-area: team3;
+}
+
+.team4 {
+  grid-area: team4;
+}
+
+/* JOIN TEAM CARD */
+.team1 .join-team {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 70px;
+  text-align: left;
+  background: #f1f6f5;
+  min-height: 100%;
+}
+
+.join-team .jt-head {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.join-team h2 {
+  font-size: clamp(2rem, 2vw, 2rem);
+  font-weight: 300;
+  opacity: 0.9;
+}
+.join-team p {
+  font-size: 1rem;
+  font-weight: 100;
+  opacity: 0.5;
+}
+
+.join-team button {
+  font-size: 16px;
+  width: fit-content;
+  margin-bottom: -120px;
+  display: flex;
+  align-self: center;
+}
+
+/* TEAM IMAGE */
+.team-img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.team-img:hover img {
+  transform: scale(1.08);
+}
+
+/* DESCRIPTION */
+.team-desc {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.team-desc p {
+  font-size: clamp(16px, 2vw, 20px);
+}
+
+/*
+   TABLET
+*/
+@media (max-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "team-heading team-heading"
+      "team1 team2"
+      "team3 team4";
+  }
+
+}
+
+/* 
+   MOBILE
+ */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "team-heading"
+      "team1"
+      "team2"
+      "team3"
+      "team4";
+  }
+
+  .team-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .team-desc {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .join-team button {
+    width: 100%;
+    text-align: center;
+  }
+  .join-team {
+    margin-bottom: 30px;
+  }
+}
+
+/* 
+   SMALL MOBILE
+ */
+@media (max-width: 480px) {
+  .team-grid {
+    gap: 15px;
+  }
+
+  .team-img {
+    border-radius: 15px;
+  }
+
+  .team-desc p {
+    font-size: 15px;
+  }
+
+  .join-team {
+    padding: 15px;
+    margin-bottom: 30px;
+  }
 }
